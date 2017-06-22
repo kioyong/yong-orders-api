@@ -1,5 +1,6 @@
 package com.yong.orders.yongorders.controller;
 
+import com.yong.orders.model.User;
 import com.yong.orders.yongorders.EurekaConfig;
 import com.yong.orders.yongorders.client.IndexDefaultClient;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,9 +24,9 @@ public class IndexController {
         return indexDefaultClient.getInitInfo();
     }
 
-    @PostMapping("/addUser")
-    public User addUser(@RequestBody User user){
-        return indexDefaultClient.save(user);
+    @PostMapping("/user")
+    public User addOne(@RequestBody User user){
+        return indexDefaultClient.addOne(user);
     }
 
 }

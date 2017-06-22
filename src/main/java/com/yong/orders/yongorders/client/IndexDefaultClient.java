@@ -15,7 +15,7 @@ public interface IndexDefaultClient {
     @GetMapping("/info")
     String getInitInfo();
 
-    @PostMapping("/addUser")
-    public User addUser(@RequestBody User user);
+    @PostMapping("/user")
+    User addOne(@RequestBody User user);
 
 }
