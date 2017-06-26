@@ -1,4 +1,4 @@
-package com.yong.orders.yongorders;
+package com.yong.orders;
 
 import com.netflix.appinfo.AmazonInfo;
 import org.slf4j.Logger;
