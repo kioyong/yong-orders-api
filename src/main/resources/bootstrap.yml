@@ -3,7 +3,10 @@ server:
 
 spring:
   application:
-      name: yong-orders-api
+    name: yong-orders-api
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/test1
 eureka:
   client:
     serviceUrl:

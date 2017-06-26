@@ -7,12 +7,14 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 @Configuration
 @ComponentScan
 @EnableAutoConfiguration
 @EnableEurekaClient
 @EnableFeignClients
+@EnableScheduling
 public class YongOrdersApplication {
 
 	public static void main(String[] args) {
