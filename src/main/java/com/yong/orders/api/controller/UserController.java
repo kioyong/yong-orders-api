@@ -1,6 +1,7 @@
 package com.yong.orders.api.controller;
 
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.yong.orders.api.client.BaseClient;
 import com.yong.orders.api.client.UserApiClient;
 import com.yong.orders.api.service.UserService;
@@ -9,6 +10,7 @@ import com.yong.orders.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 /**
@@ -29,5 +31,16 @@ public class UserController extends BaseController<User>{
 
     }
 
+    @Override
+    @GetMapping
+    @HystrixCommand(fallbackMethod = "findAllFallback")
+    public Result<List<User>> findtAll(
+            HttpServletResponse response) {
+        return service.findAll();
+    }
+    public Result<List<User>> findAllFallback(HttpServletResponse response){
+        return Result.fail(3,"sorry,something error happen.");
+
+    }
 
 }

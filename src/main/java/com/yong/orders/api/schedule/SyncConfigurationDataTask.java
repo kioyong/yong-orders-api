@@ -26,7 +26,7 @@ public class SyncConfigurationDataTask {
     @Autowired
     private UserService userService;
 
-    @Scheduled(fixedRate = 5000)
+    @Scheduled(fixedRate = 10000)
     public void reportCurrentTime() {
         log.info("The time is now {}", dateFormat.format(new Date()));
         SyncUserData();
