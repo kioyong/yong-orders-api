@@ -4,11 +4,14 @@ import com.yong.orders.api.client.UserApiClient;
 import com.yong.orders.api.dao.UserDao;
 import com.yong.orders.api.service.UserService;
 import com.yong.orders.api.service.impl.BaseServiceImpl;
+import com.yong.orders.common.Result;
 import com.yong.orders.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by yong.a.liang on 6/26/2017.
@@ -34,6 +37,21 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
 
     public void removeAll() {
         userDao.deleteAll();
+    }
+
+    @Override
+    public Result<List<User>> findUserByDepartmentGroup(String departmentGroupId) {
+        return null;
+    }
+
+    @Override
+    public Map<String, List<String>> findUserByDepartmentGroupAll() {
+        return null;
+    }
+
+    @Override
+    public Iterator<Map.Entry<String, String>> findUserByDepartmentGroupMap() {
+        return null;
     }
 
 
