@@ -21,22 +21,19 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
 
     private UserApiClient client;
 
-    private UserDao userDao;
-
     @Autowired
     public UserServiceImpl(UserApiClient client,UserDao userDao) {
         super(client);
         this.client = client;
-        this.userDao=userDao;
     }
 
-    @Override
     public void addAll(List<User> users) {
-        userDao.insert(users);
+        client.addAll(users);
     }
 
     public void removeAll() {
-        userDao.deleteAll();
+
+        client.deleteAll();
     }
 
     @Override
