@@ -1,11 +1,15 @@
 package com.yong.orders.api.client;
 
-import com.yong.orders.model.User;
 import org.springframework.cloud.netflix.feign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
 
 /**
- * Created by LiangYong on 2017/8/14.
+ * @author LiangYong
+ * @createdDate 2017/11/4
  */
-@FeignClient(name = "yong-orders", path = "/orders")
-public interface OrdersClient extends BaseClient<User>{
+@FeignClient("yong-orders")
+public interface OrdersClient {
+
+	@GetMapping("/index")
+	String index();
 }
