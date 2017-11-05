@@ -1,26 +1,16 @@
 server:
   port: 8089
+  servlet:
+    context-path: /orders/api
 
 spring:
   application:
     name: yong-orders-api
-eureka:
-  client:
-    fetch-registry: false
-    register-with-eureka: false
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
-  instance:
-    statusPageUrlPath: /info
-    healthCheckUrlPath: /health
-feign:
-  client:
-    config:
-      default:
-        connectTimeout: 5000
-        readTimeout: 5000
-        loggerLevel: basic
+  profiles:
+    active: dev,devApi
 
-yong-orders:
-  ribbon:
-    listOfServers: yong-orders
+
+logging:
+  level:
+    com.yong: DEBUG
+    org.springframework.security: DEBUG

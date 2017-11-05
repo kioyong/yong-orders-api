@@ -2,8 +2,11 @@ package com.yong.orders.api.controller;
 
 import com.yong.orders.api.client.OrdersClient;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.security.Principal;
 
 /**
  * @author LiangYong
@@ -17,6 +20,12 @@ public class IndexController {
 
 	@GetMapping("/index")
 	public String index(){
-		return client.index();
+		return "security Test";
 	}
+
+	@GetMapping("/me")
+	public Principal me(@AuthenticationPrincipal Principal principal){
+		return principal;
+	}
+
 }
